@@ -18,6 +18,6 @@ only:
 - master
 -
 script:
-- set -o pipefail && xcodebuild -workspace Haneke.xcworkspace -scheme Haneke-iOS -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' build test | xcpretty --color
+- set -o pipefail && xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' build test | xcpretty --color
 
 

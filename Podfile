@@ -5,11 +5,11 @@ use_frameworks!
 
 target 'Xcode8CIiOSExampleApp' do
 
-    pod 'FBAnnotationClusteringSwift'
+#    pod 'FBAnnotationClusteringSwift'
     pod 'Google/SignIn'
     pod 'RealmSwift'
     pod 'M13Checkbox'
-    pod 'DKImagePickerController'
+#    pod 'DKImagePickerController'
 
 
 end
