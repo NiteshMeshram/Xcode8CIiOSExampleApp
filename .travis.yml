@@ -3,6 +3,6 @@ language: objective-c  #1
 osx_image: xcode8 #2
 xcode_project: Xcode8CIiOSExampleApp.xcodeproj #3
 xcode_scheme: Xcode8CIiOSExampleApp #4
-xcode_sdk: iphoneos #5
+xcode_sdk: iphonesimulator9.2 #5
 
 
