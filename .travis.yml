@@ -21,3 +21,6 @@ xcode_sdk: iphonesimulator9.3 #5
 #- set -o pipefail && xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' build test | xcpretty --color
 
 
+
+
+
