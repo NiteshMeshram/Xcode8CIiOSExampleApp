@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0 (swiftlang-800.0.46.2 clang-800.0.38)"
+options: "5a7df01045d62aaf0312f1560396a63f"
+build_time: [531470155, 183271000]
+inputs:
+  "/Users/nitesh.meshram/Documents/v2Apps/Xcode8CIiOSExampleApp/Xcode8CIiOSExampleApp/ViewController.swift": [9223372036854775807, 0]
+  "/Users/nitesh.meshram/Documents/v2Apps/Xcode8CIiOSExampleApp/Xcode8CIiOSExampleApp/AppDelegate.swift": [9223372036854775807, 0]
