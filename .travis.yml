@@ -1,24 +1,40 @@
-# Basic travis script
-language: objective-c  #1
-osx_image: xcode7.3 #2
-xcode_workspace: Xcode8CIiOSExampleApp.xcworkspace #3
-xcode_scheme: Xcode8CIiOSExampleApp #4
-xcode_sdk: iphonesimulator9.3 #5
-#xcode_sdk: macosx10.11
+# .travis.yml
+# XcodeTravis
+#
+# Created by V2Solutions on 16/03/15.
+# Copyright (c) 2014 ___v2Tech Ventures___. All rights reserved.
 
-#language: objective-c
-#osx_image: xcode8
-#before_install:
+#Travis CI and V2 GPTI standard configuration file
+#Do not change any configuration except env/global: variable content
+#Alignment of text is important in travis so do not reformat the file and indentation of the content.
+#Do not use TAB in the file.
+#Validated the .travis.yml with _* **http://www.yamllint.com/* (http://lint.travis-ci.org/)
+
+#Defines the language to be used by travis for compilation
+language: objective-c
+
+# we're telling travis to use xcode 8.0
+osx_image: xcode8
+#xcode_project: ./Mobile-CI-iOS/Mobile-CI-iOS.xcodeproj #3
+xcode_workspace: Xcode8CIiOSExampleApp.xcworkspace
+xcode_scheme: Xcode8CIiOSExampleApp #4
+xcode_sdk: iphonesimulator10.0 #5
+#xcode_sdk: iphoneos #5
+
+# List of scripts to be executed before execution of "before_script"
+before_install:
 #- brew update
-#- brew install carthage || brew outdated carthage || brew upgrade carthage
-#install:
-#- carthage bootstrap
-#branches:
-#only:
-#- master
-#-
-#script:
-#- set -o pipefail && xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' build test | xcpretty --color
+#- brew outdated xctool || brew upgrade xctool
+#- gem install CFPropertyList
+- "gem install xcpretty"
+
+script:
+- set -o pipefail && xcodebuild -project $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+
+
+
+
+
 
 
 
