@@ -103,6 +103,9 @@ xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTP
 echo "Output Directory Path"
 echo "$OUTPUTDIR/$APP_NAME.app"
 
+echo "Output Directory All files"
+ls $OUTPUTDIR
+
 # Condition to check the application's .ipa file is avaialable in build path
 # If the .ipa file is available then zip the app.dysm file
 
@@ -152,7 +155,6 @@ if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
         curl \
         -F "status=2" \
         -F "notify=0" \
-        -F "notes=$RELEASE_NOTES" \
         -F "notes_type=0" \
         -F "ipa=@$OUTPUTDIR/$APP_NAME.ipa" \
         -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN" \
@@ -162,5 +164,5 @@ if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
 else
     echo "Failed to Upload Build on Hockeyapp"
 fi
-
+#        -F "notes=$RELEASE_NOTES" \
 # -F "dsym=@$OUTPUTDIR/$APP_NAME.app.dsym.zip" \
