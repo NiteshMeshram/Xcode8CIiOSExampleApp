@@ -103,64 +103,64 @@ xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTP
 echo "Output Directory Path"
 echo "$OUTPUTDIR/$APP_NAME.app"
 
-## Condition to check the application's .ipa file is avaialable in build path
-## If the .ipa file is available then zip the app.dysm file
-#
-##
-##if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
-##    zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dsym.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
-##else
-##    echo "Error : dSYM or IPA is not generated.."
-##    exit 0
-##fi
-#
-## RELEASE_DATE : To specify the relase date of the build
-#RELEASE_DATE='date '+%Y-%m-%d %H:%M:%S''
-#
-## RELEASE_NOTES : To specify the release notes, including the relase date and build number
-##RELEASE_NOTES="Travis Integration: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
-#
-#
-## 'b is label prefix coded as standard prefix for all project'
-#if [ ! -z "$INFOPLIST_FILE" ]; then
-#LABEL_ID=b`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "$INFOPLIST_FILE"`
-#echo " $INFOPLIST_FILE => Label ID ="$LABEL_ID
-#fi
-#
-#OUTPUT_FILE_NAME="$OUTPUT_FILE_NAME$LABEL_ID"
-#
-#
-## Condition to check the stories file is avaialable in release path
-## If file is available then read the text from the file
-#if ([ -f "$OUTPUT_FILE_NAME" ]); then
-#    ALL_STORIES_WITH_ID=`cat "$OUTPUT_FILE_NAME"`
-#else
-#    echo "Error : File not found on path $OUTPUT_FILE_NAME .."
-#fi
-#
-#
-#RELEASE_NOTES="$ALL_STORIES_WITH_ID <br> Travis Integration Build: $TRAVIS_BUILD_NUMBER"
-#
-#echo $RELEASE_NOTES
-#
-#if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
-#    if [ ! -z "$HOCKEY_APP_ID" ] && [ ! -z "$HOCKEY_APP_TOKEN" ]; then
-#        echo ""
-#        echo "***************************"
-#        echo "* Uploading to Hockeyapp *"
-#        echo "***************************"
-#        curl \
-#        -F "status=2" \
-#        -F "notify=0" \
-#        -F "notes=$RELEASE_NOTES" \
-#        -F "notes_type=0" \
-#        -F "ipa=@$OUTPUTDIR/$APP_NAME.ipa" \
-#        -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN" \
-#        https://rink.hockeyapp.net/api/2/apps/upload
-#        echo "Upload finish HockeyApp "
-#    fi
-#else
-#    echo "Failed to Upload Build on Hockeyapp"
-#fi
+# Condition to check the application's .ipa file is avaialable in build path
+# If the .ipa file is available then zip the app.dysm file
+
+
+if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
+    zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dsym.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
+else
+    echo "Error : dSYM or IPA is not generated.."
+    exit 0
+fi
+
+# RELEASE_DATE : To specify the relase date of the build
+RELEASE_DATE='date '+%Y-%m-%d %H:%M:%S''
+
+# RELEASE_NOTES : To specify the release notes, including the relase date and build number
+#RELEASE_NOTES="Travis Integration: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
+
+
+# 'b is label prefix coded as standard prefix for all project'
+if [ ! -z "$INFOPLIST_FILE" ]; then
+LABEL_ID=b`/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "$INFOPLIST_FILE"`
+echo " $INFOPLIST_FILE => Label ID ="$LABEL_ID
+fi
+
+OUTPUT_FILE_NAME="$OUTPUT_FILE_NAME$LABEL_ID"
+
+
+# Condition to check the stories file is avaialable in release path
+# If file is available then read the text from the file
+if ([ -f "$OUTPUT_FILE_NAME" ]); then
+    ALL_STORIES_WITH_ID=`cat "$OUTPUT_FILE_NAME"`
+else
+    echo "Error : File not found on path $OUTPUT_FILE_NAME .."
+fi
+
+
+RELEASE_NOTES="$ALL_STORIES_WITH_ID <br> Travis Integration Build: $TRAVIS_BUILD_NUMBER"
+
+echo $RELEASE_NOTES
+
+if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
+    if [ ! -z "$HOCKEY_APP_ID" ] && [ ! -z "$HOCKEY_APP_TOKEN" ]; then
+        echo ""
+        echo "***************************"
+        echo "* Uploading to Hockeyapp *"
+        echo "***************************"
+        curl \
+        -F "status=2" \
+        -F "notify=0" \
+        -F "notes=$RELEASE_NOTES" \
+        -F "notes_type=0" \
+        -F "ipa=@$OUTPUTDIR/$APP_NAME.ipa" \
+        -H "X-HockeyAppToken: $HOCKEY_APP_TOKEN" \
+        https://rink.hockeyapp.net/api/2/apps/upload
+        echo "Upload finish HockeyApp "
+    fi
+else
+    echo "Failed to Upload Build on Hockeyapp"
+fi
 
 # -F "dsym=@$OUTPUTDIR/$APP_NAME.app.dsym.zip" \
