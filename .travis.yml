@@ -29,7 +29,9 @@ before_install:
 - "gem install xcpretty"
 
 script:
-- set -o pipefail && xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+#- set -o pipefail &&
+
+xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 
 
 
