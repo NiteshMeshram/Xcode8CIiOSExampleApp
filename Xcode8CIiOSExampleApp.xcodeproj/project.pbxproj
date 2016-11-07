@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003CB17E1DD0A4AC00A384B9 /* exportOptionsPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 003CB17D1DD0A4AC00A384B9 /* exportOptionsPlist.plist */; };
 		00F885FA1DBF3EA8006896AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F885F91DBF3EA8006896AB /* AppDelegate.swift */; };
 		00F885FC1DBF3EA8006896AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F885FB1DBF3EA8006896AB /* ViewController.swift */; };
 		00F885FF1DBF3EA8006896AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F885FD1DBF3EA8006896AB /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003CB17D1DD0A4AC00A384B9 /* exportOptionsPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptionsPlist.plist; sourceTree = "<group>"; };
 		00875ABAB1A6FCC40B13CFA6 /* Pods-Xcode8CIiOSExampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode8CIiOSExampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode8CIiOSExampleApp/Pods-Xcode8CIiOSExampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		00F885F61DBF3EA8006896AB /* Xcode8CIiOSExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xcode8CIiOSExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F885F91DBF3EA8006896AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				00F886001DBF3EA8006896AB /* Assets.xcassets */,
 				00F886021DBF3EA8006896AB /* LaunchScreen.storyboard */,
 				00F886051DBF3EA8006896AB /* Info.plist */,
+				003CB17D1DD0A4AC00A384B9 /* exportOptionsPlist.plist */,
 			);
 			path = Xcode8CIiOSExampleApp;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003CB17E1DD0A4AC00A384B9 /* exportOptionsPlist.plist in Resources */,
 				00F886041DBF3EA8006896AB /* LaunchScreen.storyboard in Resources */,
 				00F886011DBF3EA8006896AB /* Assets.xcassets in Resources */,
 				00F885FF1DBF3EA8006896AB /* Main.storyboard in Resources */,

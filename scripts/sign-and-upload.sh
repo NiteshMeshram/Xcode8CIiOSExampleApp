@@ -54,10 +54,21 @@ echo "***************************"
 
 
 
-xcodebuild -scheme Xcode8CIiOSExampleApp -workspace Xcode8CIiOSExampleApp.xcworkspace clean archive -archivePath "$OUTPUTDIR"
-xcodebuild -exportArchive -exportFormat ipa -archivePath "$OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive" -exportPath "$OUTPUTDIR/Xcode8CIiOSExampleApp.ipa" -exportProvisioningProfile "$PROVISIONING_PROFILE"
+#xcodebuild -scheme Xcode8CIiOSExampleApp -workspace Xcode8CIiOSExampleApp.xcworkspace clean archive -archivePath "$OUTPUTDIR"
+#xcodebuild -exportArchive -exportFormat ipa -archivePath "$OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive" -exportPath "$OUTPUTDIR/Xcode8CIiOSExampleApp.ipa" -exportProvisioningProfile "$PROVISIONING_PROFILE"
+
+xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $PWD/build/Xcode8CIiOSExampleApp.xcarchive
+
+xcodebuild -exportArchive -archivePath $PWD/build/Xcode8CIiOSExampleApp.xcarchive -exportOptionsPlist Xcode8CIiOSExampleApp/exportOptionsPlist.plist -exportPath $PWD/build
 
 
+echo "Output PWD"
+ls $PWD/build
+
+#/Users/nitesh.meshram/Documents/v2Apps/Xcode8CIiOSExampleApp/Xcode8CIiOSExampleApp/exportOptionsPlist.plist
+
+
+#export INFOPLIST_FILE="Xcode8CIiOSExampleApp/exportOptionsPlist.plist"
 
 ####Suggested by Jeff #############
 
