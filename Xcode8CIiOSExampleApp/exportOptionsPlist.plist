@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>method</key>
-	<string>app-store</string>
+	<string>enterprise</string>
 	<key>teamID</key>
 	<string>4G2KHJ47KE</string>
 </dict>
