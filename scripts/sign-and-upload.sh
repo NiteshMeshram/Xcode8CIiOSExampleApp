@@ -50,7 +50,14 @@ echo "* Signing *"
 echo "***************************"
 
 # command to package the appliacation and create the .ipa file
-xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+#xcrun -log -sdk iphoneos PackageApplication "$OUTPUTDIR/$APP_NAME.app" -o "$OUTPUTDIR/$APP_NAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
+
+
+
+xcodebuild -scheme Xcode8CIiOSExampleApp -workspace Xcode8CIiOSExampleApp.xcworkspace clean archive -archivePath "$OUTPUTDIR"
+xcodebuild -exportArchive -exportFormat ipa -archivePath "$OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive" -exportPath "$OUTPUTDIR/Xcode8CIiOSExampleApp.ipa" -exportProvisioningProfile "$PROVISIONING_PROFILE"
+
+
 
 ####Suggested by Jeff #############
 
