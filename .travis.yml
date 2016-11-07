@@ -1,10 +1,37 @@
----
+
+
+
+# .travis.yml
+# XcodeTravis
+#
+# Created by V2Solutions on 16/03/15.
+# Copyright (c) 2014 ___v2Tech Ventures___. All rights reserved.
+
+#Travis CI and V2 GPTI standard configuration file
+#Do not change any configuration except env/global: variable content
+#Alignment of text is important in travis so do not reformat the file and indentation of the content.
+#Do not use TAB in the file.
+#Validated the .travis.yml with _* **http://www.yamllint.com/* (http://lint.travis-ci.org/)
+
+#Defines the language to be used by travis for compilation
+language: objective-c
+
+# we're telling travis to use xcode 8.0
+osx_image: xcode8
+#xcode_project: ./Mobile-CI-iOS/Mobile-CI-iOS.xcodeproj #3
+xcode_workspace: Xcode8CIiOSExampleApp.xcworkspace
+xcode_scheme: Xcode8CIiOSExampleApp #4
+xcode_sdk: iphonesimulator10.0 #5
+#xcode_sdk: iphoneos #5
+
+# List of scripts to be executed before execution of "before_script"
 before_install:
 - "gem install xcpretty"
-language: objective-c
-osx_image: xcode8
+
 script:
-- "xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -configuration \"$APP_BUILD_ENV\" OBJROOT=\"$PWD/build\" SYMROOT=\"$PWD/build\" ONLY_ACTIVE_ARCH=NO | xcpretty -c"
-xcode_scheme: Xcode8CIiOSExampleApp
-xcode_sdk: iphonesimulator10.0
-xcode_workspace: Xcode8CIiOSExampleApp.xcworkspace
+- xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme Xcode8CIiOSExampleApp -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+
+#$TRAVIS_XCODE_SCHEME
+
+
+
