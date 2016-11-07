@@ -32,7 +32,7 @@ script:
 #- xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme Xcode8CIiOSExampleApp -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 
 
-- xcodebuild -workspace $xcode_workspace -scheme Xcode8CIiOSExampleApp -sdk iphonesimulator10.0
+- xcodebuild -workspace ./Mobile-CI-iOS/Mobile-CI-iOS.xcodeproj -scheme Xcode8CIiOSExampleApp -sdk iphonesimulator10.0 | xcpretty -c
 #$TRAVIS_XCODE_SCHEME
 
 
