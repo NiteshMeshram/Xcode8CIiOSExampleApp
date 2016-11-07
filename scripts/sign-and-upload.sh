@@ -107,12 +107,12 @@ echo "$OUTPUTDIR/$APP_NAME.app"
 # If the .ipa file is available then zip the app.dysm file
 
 
-if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
-    zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dsym.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
-else
-    echo "Error : dSYM or IPA is not generated.."
-    exit 0
-fi
+#if ([ -f "$OUTPUTDIR/$APP_NAME.ipa" ]); then
+#    zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dsym.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
+#else
+#    echo "Error : dSYM or IPA is not generated.."
+#    exit 0
+#fi
 
 # RELEASE_DATE : To specify the relase date of the build
 RELEASE_DATE='date '+%Y-%m-%d %H:%M:%S''
