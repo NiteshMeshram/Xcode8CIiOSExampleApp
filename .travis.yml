@@ -27,13 +27,21 @@ xcode_sdk: iphonesimulator10.0 #5
 # List of scripts to be executed before execution of "before_script"
 before_install:
 - "gem install xcpretty"
+- "chmod a+x scripts/config.sh"
+- chmod +x scripts/add-key.sh
+- chmod +x scripts/remove-key.sh
+- chmod +x scripts/update-bundle.sh
+- chmod +x scripts/sign-and-upload.sh
+
+# List of scripts to be executed before execution of script
+before_script:
+- ". ./scripts/config.sh"
+- "./scripts/add-key.sh"
+- "./scripts/update-bundle.sh"
 
 script:
-#- xcodebuild -workspace $TRAVIS_XCODE_PROJECT -scheme Xcode8CIiOSExampleApp -sdk $TRAVIS_XCODE_SDK -configuration "$APP_BUILD_ENV" OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -sdk iphoneos -configuration Release OBJROOT="$PWD/build" SYMROOT="$PWD/build" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 
 
-- xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -sdk iphonesimulator10.0 | xcpretty -c
+##- xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -sdk iphonesimulator10.0 | xcpretty -c
 #$TRAVIS_XCODE_SCHEME
-
-
-
