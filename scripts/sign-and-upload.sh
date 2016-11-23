@@ -56,7 +56,7 @@ echo "***************************"
 
 #xcodebuild -scheme Xcode8CIiOSExampleApp -workspace Xcode8CIiOSExampleApp.xcworkspace clean archive -archivePath "$OUTPUTDIR"
 #xcodebuild -exportArchive -exportFormat ipa -archivePath "$OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive" -exportPath "$OUTPUTDIR/Xcode8CIiOSExampleApp.ipa" -exportProvisioningProfile "$PROVISIONING_PROFILE"
-
+rvm use system
 xcodebuild -workspace Xcode8CIiOSExampleApp.xcworkspace -scheme Xcode8CIiOSExampleApp -sdk iphoneos -configuration AppStoreDistribution archive -archivePath $OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive
 
 xcodebuild -exportArchive -archivePath $OUTPUTDIR/Xcode8CIiOSExampleApp.xcarchive -exportOptionsPlist Xcode8CIiOSExampleApp/exportOptionsPlist.plist -exportPath $OUTPUTDIR/
