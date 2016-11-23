@@ -51,4 +51,5 @@ after_success:
 #Sign the build using certs and upload to Hockey App
 #based on specified tokens and ids when all the command are executed successfuly
 #This sign will upload the .ipa to Hockey App
+- rvm use system
 - "./scripts/sign-and-upload.sh"
